@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { fetchPopularRepos } from '../utils/api'
 
 function LanguagesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
@@ -31,19 +32,46 @@ export default class Popular extends React.Component {
 
     this.state = {
       selectedLanguage: 'All',
+      error: null,
+      repos: null,
     }
 
     this.updateLanguage = this.updateLanguage.bind(this)
   }
 
+  componentDidMount() {
+    this.updateLanguage(this.state.selectedLanguage)
+  }
+
   updateLanguage (selectedLanguage) {
     this.setState({
       selectedLanguage,
+      error: null,
+      repos: null,
     })
+
+    fetchPopularRepos(selectedLanguage)
+      .then((repos) => {
+        this.setState({
+          repos,
+          error: null,
+        })
+      })
+      .catch((error) => {
+        console.warn('Error fetching repos: ', error)
+
+        this.setState({
+          error: 'There was an error fetching the repositories',
+        })
+      })
+  }
+
+  isLoading() {
+    return this.state.repos === null && this.state.error === null
   }
 
   render() {
-    const { selectedLanguage } = this.state
+    const { selectedLanguage, repos, error } = this.state
 
     return (
       <React.Fragment>
@@ -51,6 +79,11 @@ export default class Popular extends React.Component {
           selected={selectedLanguage}
           onUpdateLanguage={this.updateLanguage}
         />
+
+        {this.isLoading() && <p>LOADING</p>}
+        {error && <p>{error}</p>}
+
+        {repos && (<pre>{JSON.stringify(repos, null, 2)}</pre>)}
       </React.Fragment>
     )
   }
