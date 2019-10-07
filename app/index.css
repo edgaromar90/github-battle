@@ -75,6 +75,10 @@ li {
   color: inherit;
 }
 
+.nav li {
+  margin-right: 10px;
+}
+
 /* Popular Component style */
 .grid {
   display: flex;
@@ -83,6 +87,10 @@ li {
 
 .space-around {
   justify-content: space-around;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .header-lg {
