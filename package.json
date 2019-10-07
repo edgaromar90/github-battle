@@ -12,7 +12,8 @@
       "@babel/preset-react"
     ],
     "plugins": [
-      "@babel/plugin-proposal-class-properties"
+      "@babel/plugin-proposal-class-properties",
+      "syntax-dynamic-import"
     ]
   },
   "author": "Edgar Omar Henriquez",
@@ -31,6 +32,7 @@
     "webpack-dev-server": "^3.8.1"
   },
   "dependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "prop-types": "^15.7.2",
     "query-string": "^6.8.3",
     "react": "^16.10.1",
