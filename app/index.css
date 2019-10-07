@@ -22,6 +22,41 @@ li {
   padding: 50px;
 }
 
+.dark {
+  color: #DADADA;
+  background: #1c2022;
+  min-height: 100%;
+}
+
+.btn-theme:focus {
+  outline: 0;
+}
+
+.toggle-theme-light {
+  cursor: pointer;
+  border: 1px solid #1c2022;
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+
+.toggle-theme-light:hover {
+  color: #DADADA;
+  background: #1c2022;
+}
+
+.toggle-theme-dark {
+  cursor: pointer;
+  color: #DADADA;
+  border: 1px solid #DADADA;
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+
+.toggle-theme-dark:hover {
+  color: #1c2022;
+  background: #FFF;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
