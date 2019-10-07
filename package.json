@@ -4,7 +4,9 @@
   "description": "Web app that displays the most popular repositories and allows you to battle with your friends based on your github profile",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "NODE_ENV='production' webpack",
+    "build-on-windows": "SET NODE_ENV='production' && webpack"
   },
   "babel": {
     "presets": [
