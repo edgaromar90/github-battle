@@ -73,6 +73,11 @@ li {
   font-weight: bold;
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: rgba(59, 64, 113, 0.7);
 }
 
 .nav li {
@@ -95,13 +100,13 @@ li {
 
 .header-lg {
   font-size: 35px;
-  font-weight: 300;
-  margin: 20px;
+  font-weight: 500;
+  margin: 10px;
 }
 
 .avatar {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 3px;
   margin: 0 auto;
   display: block;
@@ -118,9 +123,13 @@ li {
 }
 
 .link {
-  color: rgb(187, 46, 31);
+  color: rgba(59, 64, 113, 0.7);
   text-decoration: none;
   font-weight: bold;
+}
+
+.link.link-dark {
+  color: rgb(187, 46, 31);
 }
 
 .card-list {
@@ -144,7 +153,7 @@ li {
 }
 
 .bg-light {
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(135, 175, 223, 0.1);;
   border-radius: 3px;
 }
 
@@ -152,6 +161,7 @@ li {
   margin: 10px 0;
   width: 250px;
   padding: 20px;
+  box-shadow: 0px 3px 15px rgba(36, 62, 93, 0.1);
 }
 
 .card a {

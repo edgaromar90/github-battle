@@ -98,12 +98,12 @@ function PlayerPreview ({ username, onReset, label }) {
               src={`https://github.com/${username}.png?size=200`}
               alt={`Avatar for ${username}`}
             />
-            <a href={`https://github.com/${username}`} className='link'>
+            <a href={`https://github.com/${username}`} className={`link link-${theme}`}>
               {username}
             </a>
           </div>
           <button className='btn-clear flex-center' onClick={onReset}>
-            <FaTimesCircle color='rgb(194, 57, 42)' size={26} />
+            <FaTimesCircle color={theme === 'dark' ? 'rgb(187, 46, 31)' : 'rgba(59, 64, 113, 1)'} size={26} />
           </button>
         </div>
       </div>

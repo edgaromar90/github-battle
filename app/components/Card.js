@@ -21,7 +21,7 @@ export default function Card ({ header, subheader, avatar, href, name, children 
           </h4>
         )}
         <h2 className='center-text'>
-          <a className='link' href={href}>
+          <a className={`link link-${theme}`} href={href}>
             {name}
           </a>
         </h2>
@@ -33,7 +33,7 @@ export default function Card ({ header, subheader, avatar, href, name, children 
 }
 
 Card.propTypes = {
-  header: PropTypes.string.isRequired,
+  header: PropTypes.string,
   subheader: PropTypes.string,
   avatar: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,

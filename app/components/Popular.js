@@ -5,24 +5,35 @@ import Tooltip from './Tooltip'
 import Loading from './Loading'
 import { fetchPopularRepos } from '../utils/api'
 import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa'
+import { ThemeConsumer } from '../contexts/theme'
 
+function getStyle (theme, selected) {
+  if(selected) {
+    return theme == 'light' ? { color: 'rgba(59, 64, 113, 0.7)' } : { color: 'rgb(187, 46, 31)'}
+  }
+  return null;
+}
 
 function LanguagesNav ({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
-    <ul className='flex-center'>
-      {languages.map((language) => (
-        <li key={language}>
-          <button
-            className='btn-clear nav-link'
-            style={language === selected ? { color: 'rgb(187, 46, 31)' } : null}
-            onClick={() => onUpdateLanguage(language)}>
-            {language}
-          </button>
-        </li>
-      ))}
-    </ul>
+    <ThemeConsumer>
+    {({ theme }) => (
+      <ul className='flex-center'>
+        {languages.map((language) => (
+          <li key={language}>
+            <button
+              className='btn-clear nav-link'
+              style={getStyle(theme, language === selected)}
+              onClick={() => onUpdateLanguage(language)}>
+              {language}
+            </button>
+          </li>
+        ))}
+      </ul>
+    )}
+    </ThemeConsumer>
   )
 }
 
@@ -41,7 +52,6 @@ function ReposGrid ({ repos }) {
         return (
           <li key={html_url}>
             <Card
-              header={`#${index + 1}`}
               avatar={avatar_url}
               href={html_url}
               name={login}

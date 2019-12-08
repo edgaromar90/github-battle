@@ -2,9 +2,13 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { ThemeConsumer } from '../contexts/theme'
 
-const activeStyle = {
-  color: 'rgb(187, 46, 31)'
-}
+const activeStyleBlue = {
+  color: 'rgba(59, 64, 113, 0.7)',
+};
+
+const activeStyleRed = {
+  color: 'rgb(187, 46, 31)',
+};
 
 export default function Nav () {
   return (
@@ -16,7 +20,7 @@ export default function Nav () {
               <NavLink
                 to='/'
                 exact
-                activeStyle={activeStyle}
+                activeStyle={theme === 'light' ? activeStyleBlue : activeStyleRed}
                 className='nav-link'
               >
                 Popular
@@ -25,7 +29,7 @@ export default function Nav () {
             <li>
               <NavLink
                 to='/battle'
-                activeStyle={activeStyle}
+                activeStyle={theme === 'light' ? activeStyleBlue : activeStyleRed}
                 className='nav-link'
               >
                 Battle
