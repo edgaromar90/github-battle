@@ -24,7 +24,7 @@ function LanguagesNav ({ selected, onUpdateLanguage }) {
         {languages.map((language) => (
           <li key={language}>
             <button
-              className='btn-clear nav-link'
+              className={`btn-clear nav-link ${theme}`}
               style={getStyle(theme, language === selected)}
               onClick={() => onUpdateLanguage(language)}>
               {language}

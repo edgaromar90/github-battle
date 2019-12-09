@@ -80,6 +80,10 @@ li {
   color: rgba(59, 64, 113, 0.7);
 }
 
+.nav-link.dark:hover {
+  color: rgb(187, 46, 31);
+}
+
 .nav li {
   margin-right: 10px;
 }
